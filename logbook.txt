@@ -1,0 +1,8 @@
+Project Information:
+Moneta, named after the Roman godess of money and memory, is an finanical planning app to help you reach your
+finanical goals. I want this app to help in income, debt, and investment tracking.
+
+Tech Stack:
+-React
+-Django
+-PostgreSQL
