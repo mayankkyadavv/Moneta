@@ -17,7 +17,7 @@ export const AuthProvider = ({children}) => {
         e.preventDefault()
         console.log("Login Form Submitted!")
 
-        let response = await fetch("/api/login", {
+        let response = await fetch("http://localhost:8000/api/login", {
             method: "POST",
             headers : {
                 'Content-Type' : 'application/json'

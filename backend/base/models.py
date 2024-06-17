@@ -10,7 +10,7 @@ class User(AbstractUser):
     password = models.CharField(max_length=100, blank=False)
     email = models.EmailField(unique=True)
     date_time = models.DateTimeField(auto_now=False, auto_now_add=True)
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
+    balance = models.DecimalField(max_digits=10, decimal_places=2, blank=True, default=0.00)
 
     def __str__(self):
         return f"The logged in user is: {self.username}"

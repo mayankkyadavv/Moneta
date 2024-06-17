@@ -18,8 +18,15 @@ class MyTokenObtainPairView(TokenObtainPairView):
 
 @api_view(['POST'])
 def register_user(request):
-    user_data = request.data
-    user_data['password'] = make_password(user_data['password'])
-    user = User.objects.create(**user_data)
-    return Response({"message": "creation succesfull", "user": {user.username}}, status=200)
+    if request.method == 'GET':
+        return Response({"Error" : "Dont come here!"})
+    
+    try:
+        user_data = request.data
+        user_data['password'] = make_password(user_data['password'])
+        user = User.objects.create(**user_data)
+        return Response({"message": "creation succesfull", "user": {user.username}}, status=200)
+        
+    except Exception as e:
+        return Response({"error": f"Error making account: {e}"}, status=401)
 

@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-#f*edbpxbecbl$-px(iclrfnwz%gvb%(s3zv6d+-v4v4^+jucn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "base",
+    "api",
     "corsheaders",
 ]
 
@@ -180,6 +181,9 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+#SECURE_SSL_REDIRECT = True
+# Security Settings
+CSRF_COOKIE_SAMESITE = "Strict"
+SESSION_COOKIE_SAMESITE = "Strict"
+CSRF_COOKIE_HTTPONLY = False
+SESSION_COOKIE_HTTPONLY = True
